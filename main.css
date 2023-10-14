@@ -1,0 +1,35 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const numberElement = document.getElementById("number");
+    const incrementInput = document.getElementById("increment");
+    const addButton = document.getElementById("add");
+    const subtractButton = document.getElementById("subtract");
+    const resetButton = document.getElementById("reset");
+
+    let currentNumber = 0;
+
+    function updateNumber(value) {
+        numberElement.innerText = value;
+    }
+    
+    function addNumber() {
+        const incrementValue = parseInt(incrementInput.value);
+        currentNumber += incrementValue;
+        updateNumber(currentNumber);
+        
+    }
+
+    function subtractNumber() {
+        const incrementValue = parseInt(incrementInput.value);
+        currentNumber = Math.max(0, currentNumber - incrementValue);
+        updateNumber(currentNumber);
+    }
+
+    function resetNumber() {
+        currentNumber = 0;
+        updateNumber(currentNumber);
+    }
+
+    addButton.addEventListener("click", addNumber);
+    subtractButton.addEventListener("click", subtractNumber);
+    resetButton.addEventListener("click", resetNumber);
+});
